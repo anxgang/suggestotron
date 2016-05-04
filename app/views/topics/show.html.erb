@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+
+  <strong>Title</strong>
   <%= @topic.title %>
 </p>
 
@@ -10,5 +10,5 @@
   <%= @topic.description %>
 </p>
 
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<%= link_to '編輯', edit_topic_path(@topic), class: 'btn btn-primary' %>
+<%= link_to '返回', topics_path, class: 'btn btn-default' %>

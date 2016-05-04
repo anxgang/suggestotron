@@ -1,12 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Topics</h1>
-
-<table>
+<h1>主題清單</h1>
+<%= link_to '新增主題', new_topic_path, class: 'btn btn-primary pull-right' %>
+<table class="table ">
   <thead>
     <tr>
-      <th>Title</th>
-      <th></th>
+      <th>標題</th>
+      <th>投票數</th>
+      <th>投票</th>
+      <th>取消</th>
+      <th>刪除</th>
     </tr>
   </thead>
 
@@ -15,14 +18,12 @@
       <tr>
         <td><%= link_to topic.title, topic_path(topic) %></td>
         <td><%= pluralize(topic.votes.size, "vote") %></td>
-        <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
-        <td><%= button_to '-1', downvote_topic_path(topic), method: :post %></td>
-        <td><%= link_to 'Delete', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to '+1', upvote_topic_path(topic), class: 'btn btn-xs btn-default', method: :post %></td>
+        <td><%= button_to '-1', downvote_topic_path(topic), class: 'btn btn-xs btn-default', method: :post %></td>
+        <td><%= link_to 'Del', topic, class: 'btn btn-xs btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Topic', new_topic_path %>
